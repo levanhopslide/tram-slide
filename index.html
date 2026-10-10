@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trạm Slide</title>
+  <meta name="description" content="Nơi đăng và xem slide học tập. Ai cũng xem được, ai cũng gửi được.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#home"><span class="mark" aria-hidden="true"></span>Trạm Slide</a>
+    <nav aria-label="Điều hướng chính">
+      <a href="#home" data-view="home">Thư viện</a>
+      <a href="#send" data-view="send">Gửi slide</a>
+      <a href="#about" data-view="about">Giới thiệu</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- THƯ VIỆN (TRANG CHỦ) -->
+  <section id="view-home" class="view" hidden>
+    <div class="hero">
+      <h1>Slide học tập của mọi người, đặt ở một trạm.</h1>
+      <p class="lead">Ai cũng xem được, ai cũng gửi được. Bấm vào một slide để xem ngay trên trang, hoặc tải file PDF về.</p>
+    </div>
+
+    <div class="toolbar">
+      <label class="sr-only" for="q">Tìm slide</label>
+      <input id="q" class="search" type="search" placeholder="Tìm theo tên slide, tác giả hoặc chủ đề" autocomplete="off">
+      <div class="chips" id="chips" role="group" aria-label="Lọc theo chủ đề"></div>
+    </div>
+
+    <div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <div class="board" id="board" role="list"></div>
+    </div>
+  </section>
+
+  <!-- GỬI SLIDE -->
+  <section id="view-send" class="view" hidden>
+    <div class="page-head">
+      <h1>Gửi slide của bạn</h1>
+      <p class="lead">Slide được xem qua trước khi hiện lên thư viện, thường trong vài ngày.</p>
+    </div>
+    <div class="submit">
+      <ul class="rules">
+        <li>Chỉ nhận file <strong>PDF</strong>, tối đa <strong>20 MB</strong>.</li>
+        <li>Bạn là tác giả, hoặc được phép chia sẻ nội dung và hình ảnh trong slide.</li>
+        <li>Kiểm tra lại số điện thoại, email, mã sinh viên trên trang bìa trước khi gửi.</li>
+        <li>Chủ trang có thể từ chối hoặc gỡ slide không phù hợp.</li>
+      </ul>
+      <div class="submit-action" id="submit-action"></div>
+    </div>
+  </section>
+
+  <!-- GIỚI THIỆU -->
+  <section id="view-about" class="view" hidden>
+    <div class="page-head">
+      <h1>Giới thiệu</h1>
+    </div>
+    <div class="prose">
+      <p>Trạm Slide là nơi gom slide học tập về một chỗ để dễ tìm và dễ xem. Trang do <span data-owner></span> làm và duy trì.</p>
+      <h2>Ai dùng được</h2>
+      <p>Mọi người đều xem và tải slide miễn phí. Ai có slide muốn chia sẻ có thể gửi ở mục <em>Gửi slide</em>.</p>
+      <h2>Xem và tải slide</h2>
+      <p>Bấm vào một slide để xem ngay trên trang. Nút <em>Tải về</em> lưu file PDF vào máy. Nếu khung xem bị trống, dùng nút <em>Mở trong tab mới</em>.</p>
+      <h2>Gỡ bài hoặc báo lỗi</h2>
+      <p>Nếu slide của bạn bị đăng khi chưa được phép, hoặc có chỗ sai, hãy báo để bài được gỡ hoặc sửa.</p>
+      <p id="contact-line" hidden>Liên hệ: <span id="contact-text"></span></p>
+    </div>
+  </section>
+
+  <!-- XEM SLIDE -->
+  <section id="view-viewer" class="view" hidden>
+    <p class="back"><a href="#home">← Quay lại thư viện</a></p>
+    <div class="viewer-head">
+      <div class="viewer-title">
+        <h1 id="viewer-title"></h1>
+        <p class="meta" id="viewer-meta"></p>
+        <p class="summary" id="viewer-summary"></p>
+      </div>
+      <div class="viewer-actions">
+        <a class="btn primary" id="viewer-download" href="#" download>Tải về</a>
+        <a class="btn" id="viewer-open" href="#" target="_blank" rel="noopener">Mở trong tab mới</a>
+      </div>
+    </div>
+    <iframe id="viewer-frame" class="frame" title="Khung xem slide" loading="lazy"></iframe>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">Trạm Slide do <span data-owner></span> duy trì.</div>
+</footer>
+
+<script src="js/slides-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
