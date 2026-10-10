@@ -31,7 +31,7 @@ window.TRAM_SLIDE = {
       topic: "Quản trị nhân lực",
       date: "2026-10-08",
       pages: 4,
-      file: "slides/dao-tao-nhan-luc.pdf",
+      file: "dao-tao-nhan-luc.pdf",
       summary: "Lý do cần đào tạo, quy trình đào tạo bốn bước và bốn mức đánh giá hiệu quả.",
       sample: true
     },
@@ -42,7 +42,7 @@ window.TRAM_SLIDE = {
       topic: "Quản trị nhân lực",
       date: "2026-10-05",
       pages: 4,
-      file: "slides/quy-trinh-tuyen-dung.pdf",
+      file: "quy-trinh-tuyen-dung.pdf",
       summary: "Đi từ xác định nhu cầu đến lúc ứng viên nhận việc.",
       sample: true
     },
@@ -53,7 +53,7 @@ window.TRAM_SLIDE = {
       topic: "Kỹ năng mềm",
       date: "2026-09-28",
       pages: 4,
-      file: "slides/ky-nang-thuyet-trinh.pdf",
+      file: "ky-nang-thuyet-trinh.pdf",
       summary: "Cách chuẩn bị nội dung, đứng trước lớp và trả lời câu hỏi.",
       sample: true
     },
@@ -64,7 +64,7 @@ window.TRAM_SLIDE = {
       topic: "Kỹ năng mềm",
       date: "2026-10-09",
       pages: 4,
-      file: "slides/quan-ly-thoi-gian.pdf",
+      file: "quan-ly-thoi-gian.pdf",
       summary: "Lập danh sách việc, xếp ưu tiên và giữ nhịp học 25 phút.",
       sample: true
     },
@@ -75,7 +75,7 @@ window.TRAM_SLIDE = {
       topic: "Quản trị nhân lực",
       date: "2026-10-02",
       pages: 4,
-      file: "slides/van-hoa-to-chuc.pdf",
+      file: "van-hoa-to-chuc.pdf",
       summary: "Khái niệm, ba tầng văn hóa và vai trò đối với nhân viên.",
       sample: true
     }
