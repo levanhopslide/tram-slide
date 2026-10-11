@@ -5,59 +5,173 @@
   <meta name="google-site-verification" content="nWclXbfkez8jk7Cz_8bxrauU-AhaGDhslzY2Kws5x5A" />
   <meta name="google-site-verification" content="x940_o5u7cMKrPMRGy73ZlWRi11cRajKL7i-rqTfwqo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trạm Slide</title>
-  <meta name="description" content="Nơi đăng và xem slide học tập. Ai cũng xem được, ai cũng gửi được.">
+  <title>SlideAZ: mẫu slide thuyết trình đẹp, có hiệu ứng chuyển động</title>
+  <meta name="description" content="SlideAZ bán và chia sẻ mẫu slide PowerPoint thuyết trình, có hiệu ứng chuyển động, chỉnh sửa dễ dàng. Có cả slide miễn phí.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap bar">
-    <a class="brand" href="#home"><span class="mark" aria-hidden="true"></span>Trạm Slide</a>
-    <nav aria-label="Điều hướng chính">
-      <a href="#home" data-view="home">Thư viện</a>
+<!-- Dải trên cùng -->
+<div class="strip">
+  <div class="wrap strip-in">
+    <p class="strip-note">Slide PowerPoint chỉnh sửa được, có hiệu ứng chuyển động</p>
+    <div class="social" id="social"></div>
+  </div>
+</div>
+
+<!-- Đầu trang -->
+<header class="head">
+  <div class="wrap head-in">
+    <a class="logo" href="#home" aria-label="SlideAZ, về trang chủ"><span class="logo-mark" aria-hidden="true">AZ</span><span class="logo-name">Slide<b>AZ</b></span></a>
+    <form class="search" id="search-form" role="search">
+      <label class="sr-only" for="q">Tìm mẫu slide</label>
+      <input id="q" type="search" placeholder="Tìm mẫu slide theo tên hoặc chủ đề" autocomplete="off">
+      <button type="submit" aria-label="Tìm"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    </form>
+    <a class="head-cta" href="#send">Gửi slide của bạn</a>
+  </div>
+  <nav class="nav" aria-label="Điều hướng chính">
+    <div class="wrap nav-in">
+      <div class="drop">
+        <a href="#shop" data-view="shop">Mẫu slide <span aria-hidden="true">▾</span></a>
+        <div class="drop-menu" id="drop-menu"></div>
+      </div>
+      <a href="#free" data-view="free">Slide miễn phí</a>
+      <a href="#how" data-view="how">Cách mua</a>
       <a href="#send" data-view="send">Gửi slide</a>
       <a href="#about" data-view="about">Giới thiệu</a>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
 
 <main class="wrap">
 
-  <!-- THƯ VIỆN (TRANG CHỦ) -->
+  <!-- TRANG CHỦ -->
   <section id="view-home" class="view" hidden>
-    <div class="hero">
-      <h1>Slide học tập của mọi người, đặt ở một trạm.</h1>
-      <p class="lead">Ai cũng xem được, ai cũng gửi được. Bấm vào một slide để xem ngay trên trang, hoặc tải file PDF về.</p>
+    <div class="hero" id="hero"></div>
+
+    <div class="block">
+      <div class="block-head"><h2>Danh mục</h2></div>
+      <div class="cats" id="cats"></div>
     </div>
 
-    <div class="toolbar">
-      <label class="sr-only" for="q">Tìm slide</label>
-      <input id="q" class="search" type="search" placeholder="Tìm theo tên slide, tác giả hoặc chủ đề" autocomplete="off">
-      <div class="chips" id="chips" role="group" aria-label="Lọc theo chủ đề"></div>
+    <div class="block">
+      <div class="block-head"><h2>Slide bán chạy và mới nhất</h2><a href="#shop" class="more">Xem tất cả</a></div>
+      <div class="grid" id="grid-paid"></div>
     </div>
 
-    <div>
-      <p class="count" id="count" aria-live="polite"></p>
-      <div class="board" id="board" role="list"></div>
+    <div class="block">
+      <div class="block-head"><h2>Slide miễn phí</h2><a href="#free" class="more">Xem tất cả</a></div>
+      <div class="grid" id="grid-free"></div>
+    </div>
+
+    <div class="block why">
+      <div class="why-item"><span class="why-no">1</span><h3>Chỉnh sửa dễ</h3><p>File PowerPoint thật, bạn đổi chữ, hình, màu thoải mái.</p></div>
+      <div class="why-item"><span class="why-no">2</span><h3>Có hiệu ứng</h3><p>Chuyển slide bằng Morph và hiệu ứng như trong video demo.</p></div>
+      <div class="why-item"><span class="why-no">3</span><h3>Mua qua Zalo</h3><p>Nhắn tin, chuyển khoản, nhận file ngay. Không cần tạo tài khoản.</p></div>
+    </div>
+  </section>
+
+  <!-- CỬA HÀNG -->
+  <section id="view-shop" class="view" hidden>
+    <p class="crumb"><a href="#home">Trang chủ</a> / <span>Mẫu slide</span></p>
+    <h1 class="page-title">Tất cả mẫu slide</h1>
+    <div class="shop">
+      <aside class="side" aria-label="Bộ lọc">
+        <h2>Chủ đề</h2>
+        <div class="side-list" id="side-topics"></div>
+        <h2>Loại</h2>
+        <div class="side-list" id="side-type"></div>
+      </aside>
+      <div class="shop-main">
+        <div class="shop-bar">
+          <p class="count" id="count" aria-live="polite"></p>
+          <label class="sort"><span class="sr-only">Sắp xếp</span>
+            <select id="sort">
+              <option value="new">Mới nhất</option>
+              <option value="low">Giá thấp đến cao</option>
+              <option value="high">Giá cao đến thấp</option>
+            </select>
+          </label>
+        </div>
+        <div class="grid" id="grid-shop"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MIỄN PHÍ -->
+  <section id="view-free" class="view" hidden>
+    <p class="crumb"><a href="#home">Trang chủ</a> / <span>Slide miễn phí</span></p>
+    <h1 class="page-title">Slide miễn phí</h1>
+    <p class="lead">Tải về dùng ngay, không cần đăng ký. Bạn cũng có thể gửi slide của mình để chia sẻ.</p>
+    <div class="grid" id="grid-freeall"></div>
+  </section>
+
+  <!-- CHI TIẾT SẢN PHẨM -->
+  <section id="view-product" class="view" hidden>
+    <p class="crumb"><a href="#home">Trang chủ</a> / <a href="#shop">Mẫu slide</a> / <span id="p-crumb"></span></p>
+    <div class="product">
+      <div class="p-media">
+        <div class="p-frame"><img id="p-img" alt=""></div>
+        <p class="p-hint">Ảnh tổng hợp toàn bộ các slide trong bộ</p>
+      </div>
+      <div class="p-info">
+        <h1 id="p-title"></h1>
+        <p class="p-code" id="p-code"></p>
+        <div class="p-price" id="p-price"></div>
+        <p class="p-rights">Có thể dùng cho bài học và công việc cá nhân. Không bán lại, không đăng lại.</p>
+        <div class="p-actions" id="p-actions"></div>
+        <table class="specs" id="p-specs"></table>
+      </div>
+    </div>
+    <div class="p-desc">
+      <h2>Mô tả</h2>
+      <p id="p-summary"></p>
+    </div>
+    <div class="p-viewer" id="p-viewer" hidden>
+      <h2>Xem thử</h2>
+      <iframe id="p-frame" class="frame" title="Khung xem slide" loading="lazy"></iframe>
+    </div>
+    <div class="block">
+      <div class="block-head"><h2>Có thể bạn quan tâm</h2></div>
+      <div class="grid" id="grid-related"></div>
+    </div>
+  </section>
+
+  <!-- CÁCH MUA -->
+  <section id="view-how" class="view" hidden>
+    <p class="crumb"><a href="#home">Trang chủ</a> / <span>Cách mua</span></p>
+    <h1 class="page-title">Cách mua slide</h1>
+    <ol class="steps">
+      <li><h3>Chọn mẫu</h3><p>Xem ảnh tổng hợp và video demo, chọn bộ slide bạn thích.</p></li>
+      <li><h3>Nhắn tin cho SlideAZ</h3><p>Bấm nút Zalo hoặc Messenger ở trang sản phẩm, gửi mã sản phẩm (ví dụ SA-001).</p></li>
+      <li><h3>Chuyển khoản</h3><p>Bạn nhận số tài khoản qua tin nhắn. Chuyển khoản xong, gửi ảnh xác nhận.</p></li>
+      <li><h3>Nhận file</h3><p>Chúng mình gửi link tải file PowerPoint. Cần hỗ trợ sửa thì nhắn lại.</p></li>
+    </ol>
+    <div class="note">
+      <h2>Lưu ý khi dùng</h2>
+      <ul>
+        <li>Hiệu ứng Morph cần PowerPoint bản 2019 hoặc Microsoft 365. Bản cũ vẫn mở được, chỉ chuyển slide bằng hiệu ứng mờ.</li>
+        <li>Ảnh trong slide đã được kiểm tra nguồn. Nếu bạn thay ảnh khác, hãy dùng ảnh có quyền sử dụng.</li>
+        <li>Chỉ dùng cho mục đích của bạn, vui lòng không bán lại hay đăng lại file.</li>
+      </ul>
     </div>
   </section>
 
   <!-- GỬI SLIDE -->
   <section id="view-send" class="view" hidden>
-    <div class="page-head">
-      <h1>Gửi slide của bạn</h1>
-      <p class="lead">Slide được xem qua trước khi hiện lên thư viện, thường trong vài ngày.</p>
-    </div>
+    <p class="crumb"><a href="#home">Trang chủ</a> / <span>Gửi slide</span></p>
+    <h1 class="page-title">Gửi slide của bạn</h1>
+    <p class="lead">Slide được xem qua trước khi hiện lên trang, thường trong vài ngày.</p>
     <div class="submit">
       <ul class="rules">
         <li>Chỉ nhận file <strong>PDF</strong>, tối đa <strong>20 MB</strong>.</li>
         <li>Bạn là tác giả, hoặc được phép chia sẻ nội dung và hình ảnh trong slide.</li>
         <li>Kiểm tra lại số điện thoại, email, mã sinh viên trên trang bìa trước khi gửi.</li>
-        <li>Chủ trang có thể từ chối hoặc gỡ slide không phù hợp.</li>
+        <li>SlideAZ có thể từ chối hoặc gỡ slide không phù hợp.</li>
       </ul>
       <div class="submit-action" id="submit-action"></div>
     </div>
@@ -65,42 +179,39 @@
 
   <!-- GIỚI THIỆU -->
   <section id="view-about" class="view" hidden>
-    <div class="page-head">
-      <h1>Giới thiệu</h1>
-    </div>
+    <p class="crumb"><a href="#home">Trang chủ</a> / <span>Giới thiệu</span></p>
+    <h1 class="page-title">Giới thiệu SlideAZ</h1>
     <div class="prose">
-      <p>Trạm Slide là nơi gom slide học tập về một chỗ để dễ tìm và dễ xem. Trang do <span data-owner></span> làm và duy trì.</p>
-      <h2>Ai dùng được</h2>
-      <p>Mọi người đều xem và tải slide miễn phí. Ai có slide muốn chia sẻ có thể gửi ở mục <em>Gửi slide</em>.</p>
-      <h2>Xem và tải slide</h2>
-      <p>Bấm vào một slide để xem ngay trên trang. Nút <em>Tải về</em> lưu file PDF vào máy. Nếu khung xem bị trống, dùng nút <em>Mở trong tab mới</em>.</p>
+      <p>SlideAZ là nơi chia sẻ và bán mẫu slide thuyết trình, từ bài học trên lớp đến slide có hiệu ứng chuyển động. Trang do <span data-owner></span> làm và duy trì.</p>
+      <h2>Xem và tải</h2>
+      <p>Slide miễn phí tải về dùng ngay. Slide bán có ảnh xem trước và video demo, mua qua Zalo hoặc Messenger.</p>
       <h2>Gỡ bài hoặc báo lỗi</h2>
       <p>Nếu slide của bạn bị đăng khi chưa được phép, hoặc có chỗ sai, hãy báo để bài được gỡ hoặc sửa.</p>
       <p id="contact-line" hidden>Liên hệ: <span id="contact-text"></span></p>
     </div>
   </section>
 
-  <!-- XEM SLIDE -->
-  <section id="view-viewer" class="view" hidden>
-    <p class="back"><a href="#home">← Quay lại thư viện</a></p>
-    <div class="viewer-head">
-      <div class="viewer-title">
-        <h1 id="viewer-title"></h1>
-        <p class="meta" id="viewer-meta"></p>
-        <p class="summary" id="viewer-summary"></p>
-      </div>
-      <div class="viewer-actions">
-        <a class="btn primary" id="viewer-download" href="#" download>Tải về</a>
-        <a class="btn" id="viewer-open" href="#" target="_blank" rel="noopener">Mở trong tab mới</a>
-      </div>
-    </div>
-    <iframe id="viewer-frame" class="frame" title="Khung xem slide" loading="lazy"></iframe>
-  </section>
-
 </main>
 
 <footer class="foot">
-  <div class="wrap">Trạm Slide do <span data-owner></span> duy trì.</div>
+  <div class="wrap foot-in">
+    <div>
+      <p class="foot-logo">SlideAZ</p>
+      <p>Mẫu slide thuyết trình, chỉnh sửa dễ, có hiệu ứng chuyển động.</p>
+    </div>
+    <div>
+      <p class="foot-h">Liên kết</p>
+      <p><a href="#shop">Mẫu slide</a></p>
+      <p><a href="#free">Slide miễn phí</a></p>
+      <p><a href="#how">Cách mua</a></p>
+      <p><a href="#send">Gửi slide</a></p>
+    </div>
+    <div>
+      <p class="foot-h">Liên hệ</p>
+      <p id="foot-contact"></p>
+    </div>
+  </div>
+  <div class="wrap foot-copy"><p>© SlideAZ. Mẫu slide có thể dùng cho bài học và công việc cá nhân.</p></div>
 </footer>
 
 <script src="slides-data.js"></script>
